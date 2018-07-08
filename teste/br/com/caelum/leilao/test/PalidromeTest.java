@@ -3,6 +3,8 @@ package br.com.caelum.leilao.test;
 import org.junit.Assert;
 import org.junit.Test;
 
+import br.com.caelum.leilao.polidromo.Palindromo;
+
 public class PalidromeTest {
 
 	@Test
