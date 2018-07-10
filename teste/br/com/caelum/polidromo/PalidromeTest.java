@@ -1,9 +1,9 @@
-package br.com.caelum.leilao.test;
+package br.com.caelum.polidromo;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.com.caelum.leilao.polidromo.Palindromo;
+import br.com.caelum.polidromo.Palindromo;
 
 public class PalidromeTest {
 

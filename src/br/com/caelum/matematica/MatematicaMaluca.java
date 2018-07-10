@@ -1,4 +1,4 @@
-package br.com.caelum.leilao.matematica;
+package br.com.caelum.matematica;
 
 public class MatematicaMaluca {
 	

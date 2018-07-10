@@ -1,10 +1,10 @@
-package br.com.caelum.leilao.test;
+package br.com.caelum.matematica;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import br.com.caelum.leilao.matematica.MatematicaMaluca;
+import br.com.caelum.matematica.MatematicaMaluca;
 
 public class MatematicaMalucaTest {
 	
