@@ -8,8 +8,11 @@ public class CriadorDeLeilao {
 
 	private Leilao leilao;
 
+	public CriadorDeLeilao() {
+	}
+
 	public CriadorDeLeilao para(String descricao) {
-		
+
 		this.leilao = new Leilao(descricao);
 		return this;
 	}
@@ -22,7 +25,5 @@ public class CriadorDeLeilao {
 	public Leilao constroi() {
 		return leilao;
 	}
-	
-	
 
 }

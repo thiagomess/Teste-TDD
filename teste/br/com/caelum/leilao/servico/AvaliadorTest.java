@@ -4,6 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.List;
 
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,21 +22,27 @@ public class AvaliadorTest {
 	private Usuario jose;
 	private Usuario maria;
 	
-	//O @Before 
+	//O @Before instancia e inicializa, assim não sendo mais necessario usar dentro dos metodos de teste
 	@Before
 	public void criaAvaliador() {
 		this.leiloeiro = new Avaliador();
 		this.joao = new Usuario("João");
 		this.jose = new Usuario("José");
 		this.maria = new Usuario("Maria");
+		System.out.println("inicializando teste!");
+	}
+	
+	//Meotodo de teste que espera que seja lançado uma exception
+	@Test(expected=RuntimeException.class)
+	public void deveLancarExceptionCasoNaoTenhaLance() {
+		Leilao leilao = new CriadorDeLeilao().para("PS4").constroi();
+		
+		leiloeiro.avalia(leilao);
 	}
 
 	@Test
 	public void deveEntenderLancesEmOrdemCrescente() {
-
 		// parte 1: Cenario
-
-	
 		Leilao leilao = new CriadorDeLeilao().para("PlayStation 3 Novo")
 				.lance(joao, 250.0)
 				.lance(maria,300.0)
@@ -51,7 +58,7 @@ public class AvaliadorTest {
 		Assert.assertEquals(400.0, leiloeiro.getMaiorLance(), 0.0001);
 		Assert.assertEquals(250.0, leiloeiro.getMenorLance(), 0.0001);
 		Assert.assertEquals(mediaEsperado, leiloeiro.getMedia(), 0.0001);
-
+		
 	}
 
 	@Test
@@ -66,7 +73,6 @@ public class AvaliadorTest {
 
 		// validacao
 		Assert.assertEquals(0, leiloeiro.getMedia(), 0.0001);
-
 	}
 
 	@Test
@@ -106,14 +112,19 @@ public class AvaliadorTest {
 
 	}
 
-	@Test
-	public void deveEntenderLeilaoSemLances() {
-
-		Leilao leilao = new Leilao("ps3");
-		leiloeiro.avalia(leilao);
-
-		List<Lance> lista = leiloeiro.getTresMaiores();
-		assertEquals(0, lista.size());
+//	@Test
+//	public void deveEntenderLeilaoSemLances() {
+//
+//		Leilao leilao = new Leilao("ps3");
+//		leiloeiro.avalia(leilao);
+//
+//		List<Lance> lista = leiloeiro.getTresMaiores();
+//		assertEquals(0, lista.size());
+//	}
+	
+	@After
+	public void finaliza() {
+	  System.out.println("fim");
 	}
 
 }
